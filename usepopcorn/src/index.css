@@ -40,6 +40,8 @@ body {
   padding: 0 3.2rem;
   background-color: var(--color-primary);
   border-radius: 0.9rem;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .main {
@@ -48,6 +50,8 @@ body {
   display: flex;
   gap: 2.4rem;
   justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .box {
@@ -141,6 +145,8 @@ body {
   padding: 0.8rem 0;
   overflow-y: auto; /* ✅ only when needed */
   overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .list-watched {
