@@ -46,10 +46,9 @@ export default function StarRating({
     <div style={containerStyle}>
       <div style={starConatinerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <span>
+          <span key={i}>
             {" "}
             <Star
-              key={i}
               onRate={() => handleRating(i + 1)}
               onHoverIn={() => setTempRating(i + 1)}
               onHoverOut={() => setTempRating(0)}
