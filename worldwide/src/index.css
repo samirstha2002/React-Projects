@@ -27,7 +27,9 @@ html {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family:
+    "Manrope", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji",
+    "Noto Color Emoji", sans-serif;
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
