@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
-import { PT, ES, DE } from "country-flag-icons/react/3x2";
+import { getFlag } from "../utils/flag";
 import { useCities } from "../contexts/CitiesContext";
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -13,13 +13,7 @@ function CityItem({ city }) {
   const { currentCity } = useCities();
   const { cityName, country, date, id, position } = city;
 
-  const flags = {
-    Portugal: PT,
-    Spain: ES,
-    Germany: DE,
-  };
-
-  const Flag = flags[country];
+  const Flag = getFlag(country);
 
   return (
     <li>
