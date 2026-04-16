@@ -3,7 +3,7 @@
   max-height: 70%;
   background-color: var(--color-dark--2);
   border-radius: 7px;
-  overflow: scroll;
+  overflow: auto;
 
   width: 100%;
   display: flex;
@@ -31,9 +31,11 @@
   gap: 1rem;
 }
 
-.city h3 span {
-  font-size: 3.2rem;
-  line-height: 1;
+.flag {
+  width: 3.2rem;
+  height: auto;
+  display: block;
+  border-radius: 4px;
 }
 
 .city p {

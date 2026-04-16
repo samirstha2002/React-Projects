@@ -1,42 +1,59 @@
-import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./City.module.css";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useCities } from "../contexts/CitiesContext";
 
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
+import { PT, ES, DE } from "country-flag-icons/react/3x2";
+import Spinner from "./Spinner";
+import BackButton from "./BackButton";
+
+const flags = {
+  Portugal: PT,
+  Spain: ES,
+  Germany: DE,
+};
+
+const formatDate = (date) => {
+  if (!date) return "Invalid date";
+
+  const d = new Date(date);
+
+  if (isNaN(d.getTime())) return "Invalid date";
+
+  return new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "long",
     year: "numeric",
     weekday: "long",
-  }).format(new Date(date));
+  }).format(d);
+};
 
 function City() {
   const { id } = useParams();
+  const { getCity, currentCity, isLoading } = useCities();
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
-  // TEMP DATA
-  const currentCity = {
-    cityName: "Lisbon",
-    emoji: "🇵🇹",
-    date: "2027-10-31T15:59:59.138Z",
-    notes: "My favorite city so far!",
-  };
+  useEffect(() => {
+    getCity(id);
+  }, [id]);
 
-  const { cityName, emoji, date, notes } = currentCity;
+  if (isLoading || !currentCity) return <Spinner />; // ✅ MUST BE FIRST
+
+  const { cityName, country, date, notes } = currentCity;
+
+  const Flag = flags[country];
 
   return (
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          {Flag && <Flag className={styles.flag} />} {cityName}
         </h3>
       </div>
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date || null)}</p>
+        <p>{formatDate(date)}</p>
       </div>
 
       {notes && (
@@ -56,8 +73,9 @@ function City() {
           Check out {cityName} on Wikipedia &rarr;
         </a>
       </div>
-
-      <div>{/* <ButtonBack /> */}</div>
+      <div>
+        <BackButton />
+      </div>
     </div>
   );
 }

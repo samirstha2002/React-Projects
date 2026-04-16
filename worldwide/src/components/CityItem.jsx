@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
 import { PT, ES, DE } from "country-flag-icons/react/3x2";
+import { useCities } from "../contexts/CitiesContext";
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
     day: "numeric",
@@ -9,6 +10,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityItem({ city }) {
+  const { currentCity } = useCities();
   const { cityName, country, date, id, position } = city;
 
   const flags = {
@@ -23,7 +25,7 @@ function CityItem({ city }) {
     <li>
       <Link
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
-        className={styles.cityItem}
+        className={`${styles.cityItem} ${id === currentCity.id ? styles["cityItem--active"] : ""}`}
       >
         {Flag && <Flag className={styles.emoji} />}
         <h3 className={styles.name}>{cityName}</h3>
