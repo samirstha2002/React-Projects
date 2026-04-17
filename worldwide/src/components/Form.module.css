@@ -14,17 +14,28 @@
   gap: 0.5rem;
   position: relative;
 }
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
+.input {
+  width: 100%;
+  padding-right: 3rem;
 }
 
 .flag {
   position: absolute;
   right: 1rem;
-  top: 2.7rem;
-  font-size: 2.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: auto;
+  pointer-events: none;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .form.loading {
