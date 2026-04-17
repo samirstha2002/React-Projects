@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
-import { getFlag } from "../utils/flag";
+import { getFlag } from "../utils/getFlag";
 import { useCities } from "../contexts/CitiesContext";
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -11,9 +11,9 @@ const formatDate = (date) =>
 
 function CityItem({ city }) {
   const { currentCity } = useCities();
-  const { cityName, country, date, id, position } = city;
+  const { cityName, country, countryCode, date, id, position } = city;
 
-  const Flag = getFlag(country);
+  const Flag = getFlag(countryCode);
 
   return (
     <li>

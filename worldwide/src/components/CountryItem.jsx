@@ -1,14 +1,8 @@
 import styles from "./CountryItem.module.css";
-import { PT, ES, DE } from "country-flag-icons/react/3x2";
+import { getFlag } from "../utils/getFlag";
 
 function CountryItem({ country }) {
-  const flags = {
-    Portugal: PT,
-    Spain: ES,
-    Germany: DE,
-  };
-
-  const Flag = flags[country.country];
+  const Flag = getFlag(country.countryCode);
 
   return (
     <li className={styles.countryItem}>

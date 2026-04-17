@@ -8,7 +8,7 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { getFlag } from "../utils/flag";
+import { getFlag } from "../utils/getFlag";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 
@@ -59,7 +59,7 @@ function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => {
-          const Flag = getFlag(city.country); // ✅ correct place
+          const Flag = getFlag(city.countryCode);
 
           return (
             <Marker
