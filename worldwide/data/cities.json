@@ -61,16 +61,16 @@
       "id": "GVZeY85yXvs"
     },
     {
-      "cityName": "Tripurasundari",
-      "date": "2026-04-17T10:18:13.601Z",
+      "cityName": "Bansagadhi",
+      "date": "2026-04-19T06:25:52.616Z",
       "country": "Nepal",
       "countryCode": "NP",
-      "notes": "my village",
+      "notes": "very beautiful place",
       "position": {
-        "lat": "28.057902707295906",
-        "lng": "84.83093261718751"
+        "lat": "28.265682390146477",
+        "lng": "81.5185546875"
       },
-      "id": "5wFgnhpvt_Q"
+      "id": "hkAmQ_CcMm4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
