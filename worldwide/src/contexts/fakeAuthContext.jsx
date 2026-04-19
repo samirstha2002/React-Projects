@@ -20,8 +20,8 @@ function reducer(state, action) {
 }
 
 const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
+  name: "Samir",
+  email: "samir@example.com",
   password: "qwerty",
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
@@ -37,7 +37,7 @@ function AuthProvider({ children }) {
   }
 
   function logout() {
-    dispatch({ typr: "logout" });
+    dispatch({ type: "logout" });
   }
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
@@ -50,6 +50,7 @@ function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined)
     throw new Error("AuthContext was used outside the authProvider");
+  return context;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
