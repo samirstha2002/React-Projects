@@ -34,7 +34,7 @@ function City() {
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   if (isLoading || !currentCity) return <Spinner />; // ✅ MUST BE FIRST
 
