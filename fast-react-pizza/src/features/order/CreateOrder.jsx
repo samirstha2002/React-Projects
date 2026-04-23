@@ -74,12 +74,14 @@ function CreateOrder() {
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority">
+            Do you want to give your order priority?
+          </label>
         </div>
 
         <div>
           <input type="hidden" value={JSON.stringify(cart)} name="cart" />
-          <Button disabled={isSubmitting}>
+          <Button disabled={isSubmitting} type="primary">
             {isSubmitting ? 'Placing Order...' : 'Order now'}
           </Button>
         </div>
