@@ -4,9 +4,8 @@ import { formatCurrency } from '../../utils/helpers';
 import { addItem } from '../cart/cartSlice';
 
 function MenuItem({ pizza }) {
-
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
-  const dispatch-useDispatch()
+  const dispatch = useDispatch();
   function handleAddToCart() {
     const newItem = {
       pizzaId: id,
@@ -16,7 +15,7 @@ function MenuItem({ pizza }) {
       totalPrice: unitPrice * 1,
     };
 
-    dispatch(addItem(newItem))
+    dispatch(addItem(newItem));
   }
 
   return (
